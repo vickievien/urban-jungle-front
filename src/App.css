@@ -1,0 +1,17 @@
+body {
+  margin: 0 auto;
+  padding: 0 auto;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+}
+.main-index {
+  margin: 0 auto;
+}
+
+.main-title-holder {
+  text-align: center;
+  font-size: 56px;
+  color: rgb(0, 58, 0);
+  margin: 0 auto;
+  font-family: 'Palette Mosaic', cursive;
+}
