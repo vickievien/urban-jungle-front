@@ -1,3 +1,20 @@
+:root {
+  --whitesmoke: rgb(216, 215, 214);
+  --dark-gray: rgb(143, 143, 143);
+  --charcoal: rgb(56, 56, 56);
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0 auto;
   padding: 0 auto;
@@ -5,7 +22,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 .main-index {
-  margin: 0 auto;
+  
 }
 
 .main-title-holder {
@@ -14,4 +31,84 @@ body {
   color: rgb(0, 58, 0);
   margin: 0 auto;
   font-family: 'Palette Mosaic', cursive;
+}
+
+.button {
+
+}
+
+/* NAV BAR */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: var(--dark-gray)
+}
+
+.nav-logo-link {
+  width: 20%;
+  display: block;
+  cursor: pointer;
+}
+
+.nav-logo {
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item {
+  list-style: none;
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+.nav-item-link {
+  color: var(--dark-gray);
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-item-link:visited {
+  color: var(--dark-gray);
+  
+}
+
+.nav-item-link:hover {
+  color: var(--charcoal);
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  
+}
+
+.create-button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--whitesmoke);
+  transition: 0.3s ease-in-out;
+}
+
+.create-button:hover {
+  transition: 0.3s ease-in-out;
+  color: var(--charcoal);
+  /* background-color: var(--whitesmoke); */
+  border: 1px solid var(--charcoal);
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-logo-link {
+    width: 10%;
+  }
+}
+
+@media only screen and (min-width: 1200px) { 
+  .nav-logo-link {
+    width: 5%;
+  }
 }
