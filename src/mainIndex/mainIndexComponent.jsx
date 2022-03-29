@@ -11,7 +11,7 @@ const MainIndexComponent = () => {
 
   // SET STATE FOR TOGGLE NEW LISTING MODAL FORM (TRICKLE SETSTATE TO WHEREVER FORM IS)
   const [showing, setShowing] = useState(false);
-
+  
   // SET ERROR USE STATE
   const [plantServerError, setPlantServerError] = useState("");
 
@@ -26,7 +26,7 @@ const MainIndexComponent = () => {
     try {
       const getPlantsResponse = await fetch('http://localhost:3001/plants/');
       const getPlantsData = await getPlantsResponse.json();
-      console.log(getPlantsData);
+      // console.log(getPlantsData);
       setPlants(getPlantsData.data);
     } catch (error) {
       
@@ -51,8 +51,6 @@ const MainIndexComponent = () => {
       setPlantServerError(newPlantData.data);
     }
 
-
-
   }
 
   // FUNCTION TO DELETE PLANTS
@@ -65,10 +63,10 @@ const MainIndexComponent = () => {
   return (
     <main className="main-index">
       <NavContainerComponent toggleShowingFunction={toggleShowingFunction}/>
-        
-
+        {/* HOLD FOR HERO */}
         <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
         <ShowGridContainerComponent plants={plants} />
+
         <a className="back-to-top" href="#">Back to top</a>
     </main>
   );

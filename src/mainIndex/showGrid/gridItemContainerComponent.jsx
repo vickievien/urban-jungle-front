@@ -6,8 +6,9 @@ const GridItemContainerComponent = (props) => {
   
   
   const plantCards = props.plants.map(plant => {
+    console.log(plant._id);
     return (
-      <article className='grid-item-container' key={plant? plant._id : ""}>
+      <article className='grid-item-container' key={plant._id} name={plant._id} onClick={props.getOnePlantInfoFunction}>
         <img className="card-img" src={plant? plant.img : ""} alt={plant? plant.plantType : ""} />
         <div className='card-basic-info-container'>
           <h2 className='card-basic-info-plantType'>{plant? plant.plantType : ""}</h2>
