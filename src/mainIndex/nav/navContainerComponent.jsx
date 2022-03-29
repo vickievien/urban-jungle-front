@@ -8,7 +8,7 @@ const NavContainerComponent = (props) => {
     <header>
         <nav className='nav-container'>
           <NavLogoComponent />
-          <NavListComponent />
+          <NavListComponent showing={props.showing} toggleShowingFunction={props.toggleShowingFunction} />
         </nav>
     </header>
   );

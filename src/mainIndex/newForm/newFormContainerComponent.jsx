@@ -1,14 +1,19 @@
 import React from 'react';
 import '../../App.css';
+import NewFormInputsComponent from './newFormInputsComponent';
 
 
-
-const NewFormContainerComponent = () => {
+const NewFormContainerComponent = (props) => {
   return (
-    <form className='form-container new-form'>
-
-    </form>
+    <>
+    {props.showing ?
+    <div className='new-form-container'>
+        <a className='new-form-close' onClick={props.toggleShowingFunction}><i class="fas fa-times"></i></a>
+        <NewFormInputsComponent createNewPlantFunction={props.createNewPlantFunction} toggleShowingFunction={props.toggleShowingFunction}  />
+        </div>
+        : "" }
+    </>
   );
 }
 
-export default MainIndexComponent;
+export default NewFormContainerComponent;

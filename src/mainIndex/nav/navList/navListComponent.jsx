@@ -5,7 +5,7 @@ import NavItemsComponent from './navItems/navItemsComponent';
 const NavListComponent = (props) => {
   return (
     <ul className='nav-list'>
-        <NavItemsComponent />
+        <NavItemsComponent showing={props.showing} toggleShowingFunction={props.toggleShowingFunction} />
     </ul>
   );
 }
