@@ -12,6 +12,9 @@ const MainIndexComponent = () => {
   // SET STATE FOR TOGGLE NEW LISTING MODAL FORM (TRICKLE SETSTATE TO WHEREVER FORM IS)
   const [showing, setShowing] = useState(false);
   
+  // SET STATE FOR TOGGLE CARD MODAL SO DELETE FUNCTION CAN USE IT HERE
+  const [cardShowing, setCardShowing] = useState(false);
+
   // SET ERROR USE STATE
   const [plantServerError, setPlantServerError] = useState("");
 
@@ -20,6 +23,13 @@ const MainIndexComponent = () => {
     setShowing(!showing);
     // console.log('clicking')
   }
+
+  // FUNCTION TO TOGGLE CARD MODAL
+  const toggleCardShowingFunction = () => {
+    setCardShowing(!cardShowing);
+    // console.log(`clicking: ${cardShowing}`)
+  }
+
 
   // FUNCTION TO GET PLANTS FOR INDEX DISPLAY (USE EFFECT)
   const getPlantsFunction = async () => {
@@ -54,6 +64,27 @@ const MainIndexComponent = () => {
   }
 
   // FUNCTION TO DELETE PLANTS
+  const deletePlantFunction = async(deletePlantId) => {
+    try {
+      console.log('clicking delete plant function listening')
+      const deletePlantResponse = await fetch(`http://localhost:3001/plants/${deletePlantId}/`, {
+      method: "DELETE"
+    });
+    const deletePlantData = await deletePlantResponse.json();
+    console.log(deletePlantData);
+    if(deletePlantData.success === true) {
+      const newPlants = plants.filter(n => n._id !== deletePlantId);
+      setPlants(newPlants);
+    }else {
+      // DO SOMETHING HERE
+    }
+    } catch (error) {
+      // console.log(error)
+    }
+    toggleCardShowingFunction()
+    // console.log(cardShowing);
+  }
+
 
   // FUNCTION TO UPDATE PLANTS
 
@@ -65,7 +96,7 @@ const MainIndexComponent = () => {
       <NavContainerComponent toggleShowingFunction={toggleShowingFunction}/>
         {/* HOLD FOR HERO */}
         <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
-        <ShowGridContainerComponent plants={plants} />
+        <ShowGridContainerComponent plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} />
 
         <a className="back-to-top" href="#">Back to top</a>
     </main>

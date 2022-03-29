@@ -167,7 +167,7 @@ body {
   align-items: center;
 }
 
-.form-close {
+.new-form-close {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -228,13 +228,119 @@ input.submit:hover {
 }
 
 /* SHOW CARD MODAL SECTION STYLES */
-.card-modal-container-for-card {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 40% 60%;
-  gap: 10px;
+.card-modal-container {
+  padding: 40px;
+  position:relative;
 }
 
+.card-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card-modal-container-for-card {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 55% calc(45% - 10px);
+  grid-template-rows: 50% calc(50% - 10px);
+  gap: 10px;
+  border: 0.5px solid var(--dark-gray);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card-modal-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  border-radius: 0 0 10px 0;
+}
+
+.card-modal-side-text-container {
+  align-self: end;
+  margin-right: 10px;
+}
+
+.card-modal-bottom-text-container {
+  grid-column-end: span 2;
+  align-self: start;
+  margin-left: 10px;
+}
+
+.card-modal-detail-wrapper {
+  margin: 15px 0;
+}
+
+.card-modal-bottom-text-container .card-modal-detail-wrapper:first-child {
+  margin-top: 0;
+}
+
+.card-modal-side-text-container .card-modal-detail-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.card-modal-property {
+  font-size: 12px;
+  font-weight:800;
+  margin-bottom: 3px;
+}
+
+.card-modal-value {
+  font-weight: 400;
+}
+
+.card-modal-detail-wrapper.card-modal-button-container {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-button,
+.delete-button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--whitesmoke);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  transition: 0.3s ease-in-out;
+  color: var(--charcoal);
+  /* background-color: var(--whitesmoke); */
+  border: 1px solid var(--charcoal);
+}
+
+/* EDIT FORM MODAL */
+.edit-form-container {
+  /* padding: 40px; */
+  position: absolute;
+  /* width: 100%; */
+  /* position: absolute; */
+  z-index: 1;
+  /* padding: 20px; */
+  background-color: rgba(216, 215, 214, 0.973);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.edit-form-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.form-container.edit-form {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px;
+}
 
 @media only screen and (min-width: 768px) {
   .nav-logo-link {
