@@ -10,16 +10,16 @@ const ShowGridContainerComponent = (props) => {
 
   const toggleCardShowingFunction = () => {
     setCardShowing(!cardShowing);
-    // console.log('clicking')
+    console.log('clicking')
   }
 
   const [onePlantInfo, setOnePlantInfo] = useState({})
   
   const getOnePlantInfoFunction = async(e) => {
     try {
-      const getOnePlantInfoResponse = await fetch(`http://localhost:3001/plants/${e.target.name}`);
+      const getOnePlantInfoResponse = await fetch(`http://localhost:3001/plants/${e.target.id}`);
       const getOnePlantInfoData = await getOnePlantInfoResponse.json();
-      console.log(e.target.name);
+      console.log(e.target.id);
       console.log(getOnePlantInfoData);
       setOnePlantInfo(getOnePlantInfoData.data);
   
@@ -32,10 +32,10 @@ const ShowGridContainerComponent = (props) => {
   return (
     <>
       <div className='show-grid-container'>
-        <GridItemContainerComponent plants={props.plants} toggleCardShowingFunction={toggleCardShowingFunction} getOnePlantInfoFunction={getOnePlantInfoFunction} />
+        <GridItemContainerComponent plants={props.plants} getOnePlantInfoFunction={getOnePlantInfoFunction} />
       </div>
       {cardShowing ? 
-      <ShowCardModalContainerComponent />
+      <ShowCardModalContainerComponent toggleCardShowingFunction={toggleCardShowingFunction} onePlantInfo={onePlantInfo}/>
       : ""}
     </>
   );

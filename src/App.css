@@ -167,7 +167,7 @@ body {
   align-items: center;
 }
 
-.new-form-close {
+.form-close {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -225,6 +225,14 @@ input.submit:hover {
   color: var(--charcoal);
   /* background-color: var(--whitesmoke); */
   border: 1px solid var(--charcoal);
+}
+
+/* SHOW CARD MODAL SECTION STYLES */
+.card-modal-container-for-card {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 40% 60%;
+  gap: 10px;
 }
 
 
