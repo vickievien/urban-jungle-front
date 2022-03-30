@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css';
+import FooterComponent from './footer/footer';
 import NavContainerComponent from './nav/navContainerComponent';
 import NewFormContainerComponent from './newForm/newFormContainerComponent';
 import ShowGridContainerComponent from './showGrid/showGridContainerComponent';
@@ -124,8 +125,8 @@ const MainIndexComponent = () => {
         {/* HOLD FOR HERO */}
         <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
         <ShowGridContainerComponent setPlants={setPlants} plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} updatePlantFunction={updatePlantFunction} />
-
         <a className="back-to-top" href="#">Back to top</a>
+        <FooterComponent />
     </main>
   );
 }
