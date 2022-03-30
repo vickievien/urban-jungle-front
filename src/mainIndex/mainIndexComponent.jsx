@@ -9,14 +9,18 @@ const MainIndexComponent = () => {
   // SET ALL STATES AKA VARIABLES HERE:
   const [plants, setPlants] = useState([]);
 
+  // SET ERROR USE STATE
+  const [plantServerError, setPlantServerError] = useState("");
+
   // SET STATE FOR TOGGLE NEW LISTING MODAL FORM (TRICKLE SETSTATE TO WHEREVER FORM IS)
   const [showing, setShowing] = useState(false);
   
   // SET STATE FOR TOGGLE CARD MODAL SO DELETE FUNCTION CAN USE IT HERE
   const [cardShowing, setCardShowing] = useState(false);
 
-  // SET ERROR USE STATE
-  const [plantServerError, setPlantServerError] = useState("");
+  // SET STATE FOR TOGGLE EDIT BUTTON SO UPDATE FUNCTION (BELOW) CAN BE USED HERE TOO
+  // const [editFormShowing, setEditFormShowing] = useState(false);
+
 
   // CREATE FUNCTION TO TOGGLE SHOW/HIDE NEW LISTING FORM (TRICKLE FUNCTION TO NAV ITEMS)
   const toggleShowingFunction = () => {
@@ -29,6 +33,10 @@ const MainIndexComponent = () => {
     setCardShowing(!cardShowing);
     // console.log(`clicking: ${cardShowing}`)
   }
+
+  // const toggleEditFormShowingFunction = () => {
+  //     setEditFormShowing(!editFormShowing);
+  // }
 
 
   // FUNCTION TO GET PLANTS FOR INDEX DISPLAY (USE EFFECT)
@@ -60,7 +68,6 @@ const MainIndexComponent = () => {
     }else {
       setPlantServerError(newPlantData.data);
     }
-
   }
 
   // FUNCTION TO DELETE PLANTS
@@ -76,27 +83,47 @@ const MainIndexComponent = () => {
       const newPlants = plants.filter(n => n._id !== deletePlantId);
       setPlants(newPlants);
     }else {
-      // DO SOMETHING HERE
+      setPlantServerError(deletePlantData.data);
     }
     } catch (error) {
-      // console.log(error)
+      console.log(error)
     }
     toggleCardShowingFunction()
-    // console.log(cardShowing);
+  }
+
+  // FUNCTION TO UPDATE PLANTS
+  const updatePlantFunction = async(plantToUpdate) => {
+    try {
+      const updatePlantResponse = await fetch(`http://localhost:3001/plants/${plantToUpdate._id}`, {
+        method: "PUT",
+        body: JSON.stringify(plantToUpdate),
+        headers: {
+          "Content-type": "application/json"
+        }
+      });
+      const updatePlantData = await updatePlantResponse.json();
+      if(updatePlantData.success === true) {
+        const newPlantsWithUpdates = plants.map(n => n._id === plantToUpdate._id ? plantToUpdate : n);
+        setPlants(newPlantsWithUpdates);
+      }else {
+        setPlantServerError(updatePlantData.data);
+      }  
+    } catch (error) {
+      console.log(error) 
+    }
   }
 
 
-  // FUNCTION TO UPDATE PLANTS
-
   // USE EFFECT FOR INDEX
   useEffect(getPlantsFunction, []);
+  // useEffect(updatePlantFunction, [plants]);
 
   return (
     <main className="main-index">
       <NavContainerComponent toggleShowingFunction={toggleShowingFunction}/>
         {/* HOLD FOR HERO */}
         <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
-        <ShowGridContainerComponent plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} />
+        <ShowGridContainerComponent setPlants={setPlants} plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} updatePlantFunction={updatePlantFunction} />
 
         <a className="back-to-top" href="#">Back to top</a>
     </main>

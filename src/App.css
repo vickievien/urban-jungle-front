@@ -44,7 +44,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  color: var(--dark-gray)
+  color: var(--dark-gray);
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.966);
 }
 
 .nav-logo-link {
@@ -108,7 +111,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 auto;
-  padding: 40px;
+  padding: 80px 40px 40px 40px;
   gap: 20px;
 }
 
@@ -157,26 +160,28 @@ body {
 /* NEW FORM STYLES */
 .new-form-container {
   width: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  padding: 20px;
-  background-color: rgba(216, 215, 214, 0.973);
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.932);
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .new-form-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  top: -5px;
+  right: -10px;
 }
 
 .form-container.new-form {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   border-radius: 10px;
   padding: 30px;
+  background-color: rgba(223, 223, 223, 0.877);
 }
 
 .form-input-container {
@@ -230,13 +235,25 @@ input.submit:hover {
 /* SHOW CARD MODAL SECTION STYLES */
 .card-modal-container {
   padding: 40px;
-  position:relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  float: left;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.932);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .card-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  top: -5px;
+  right: -10px;
 }
 
 .card-modal-container-for-card {
@@ -248,6 +265,7 @@ input.submit:hover {
   border: 0.5px solid var(--dark-gray);
   overflow: hidden;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.973);
 }
 
 .card-modal-img {
@@ -316,30 +334,32 @@ input.submit:hover {
 
 /* EDIT FORM MODAL */
 .edit-form-container {
-  /* padding: 40px; */
-  position: absolute;
-  /* width: 100%; */
-  /* position: absolute; */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1;
-  /* padding: 20px; */
-  background-color: rgba(216, 215, 214, 0.973);
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.932);
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 
 }
 
 .edit-form-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  top: -5px;
+  right: -10px;
 }
 
 .form-container.edit-form {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   border-radius: 10px;
   padding: 30px;
+  background-color: rgba(223, 223, 223, 0.877);
 }
 
 @media only screen and (min-width: 768px) {
@@ -348,7 +368,7 @@ input.submit:hover {
   }
   .show-grid-container {
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 40px 60px;
+    padding: 80px 60px;
   }
   .card-img {
     height: 225px;

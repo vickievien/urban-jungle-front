@@ -5,46 +5,47 @@ import EditFormModalContainerComponent from './editFormModal/editFormModalContai
 
 
 const ShowCardModalComponent = (props) => {
-
     const [editFormShowing, setEditFormShowing] = useState(false);
 
     const toggleEditFormShowingFunction = () => {
         setEditFormShowing(!editFormShowing);
     }
 
+
+
     return (
         <article className='card-modal-container-for-card'>
-            <img className="card-modal-img" src={props.onePlantInfo? props.onePlantInfo.img : ""} alt={props.onePlantInfo? props.onePlantInfo.plantType : ""} />
+            <img className="card-modal-img" src={props.updatePlant? props.updatePlant.img : ""} alt={props.updatePlant? props.updatePlant.plantType : ""} />
             <section className='card-modal-side-text-container'>
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>plant name:</p>
-                    <h4 className='card-modal-value'>{props.onePlantInfo.plantName}</h4>
+                    <h4 className='card-modal-value'>{props.updatePlant.plantName}</h4>
                 </div>
 
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>species:</p>
-                    <h4 className='card-modal-value'>{props.onePlantInfo.plantType}</h4>
+                    <h4 className='card-modal-value'>{props.updatePlant.plantType}</h4>
                 </div>
 
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>price:</p>
-                    <h4 className='card-modal-value'>${props.onePlantInfo.price}</h4>
+                    <h4 className='card-modal-value'>${props.updatePlant.price}</h4>
                 </div>
             </section>
 
             <section className='card-modal-bottom-text-container'>
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>description:</p>
-                    <h4 className='card-modal-value'>{props.onePlantInfo.description}</h4>
+                    <h4 className='card-modal-value'>{props.updatePlant.description}</h4>
                 </div>
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>contact seller:</p>
-                    <h4 className='card-modal-value'>{props.onePlantInfo.email}</h4>
+                    <h4 className='card-modal-value'>{props.updatePlant.email}</h4>
                 </div>
                 <div className='card-modal-detail-wrapper card-modal-button-container'>
                     <a className='button edit-button' onClick={toggleEditFormShowingFunction}>Edit</a>
 
-                    <EditFormModalContainerComponent toggleEditFormShowingFunction={toggleEditFormShowingFunction} editFormShowing={editFormShowing} />
+                    <EditFormModalContainerComponent toggleEditFormShowingFunction={toggleEditFormShowingFunction} editFormShowing={editFormShowing} onePlantInfo={props.onePlantInfo} updatePlantFunction={props.updatePlantFunction} updatePlant={props.updatePlant} setUpdatePlant={props.setUpdatePlant} plants={props.plants}  setPlants={props.setPlants}  />
 
 
                     <a className='button delete-button' onClick={() => {props.deletePlantFunction(props.onePlantInfo._id)}}>Delete</a>

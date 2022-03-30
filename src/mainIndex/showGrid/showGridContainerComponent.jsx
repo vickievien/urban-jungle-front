@@ -7,7 +7,6 @@ import ShowCardModalContainerComponent from './showCardModal/showCardModalContai
 const ShowGridContainerComponent = (props) => {
 
   
-
   const [onePlantInfo, setOnePlantInfo] = useState({})
   
   const getOnePlantInfoFunction = async(plantId) => {
@@ -27,10 +26,10 @@ const ShowGridContainerComponent = (props) => {
   return (
     <>
       <div className='show-grid-container'>
-        <GridItemContainerComponent plants={props.plants} getOnePlantInfoFunction={getOnePlantInfoFunction} />
+        <GridItemContainerComponent plants={props.plants}  getOnePlantInfoFunction={getOnePlantInfoFunction} />
       </div>
       {props.cardShowing ? 
-      <ShowCardModalContainerComponent toggleCardShowingFunction={props.toggleCardShowingFunction} onePlantInfo={onePlantInfo} deletePlantFunction={props.deletePlantFunction} />
+      <ShowCardModalContainerComponent toggleCardShowingFunction={props.toggleCardShowingFunction} onePlantInfo={onePlantInfo} deletePlantFunction={props.deletePlantFunction} toggleEditFormShowingFunction={props.toggleEditFormShowingFunction} editFormShowing={props.editFormShowing} updatePlantFunction={props.updatePlantFunction} plants={props.plants}  setPlants={props.setPlants}  />
       : ""}
     </>
   );
