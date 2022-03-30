@@ -46,6 +46,7 @@ body {
   padding: 20px;
   color: var(--dark-gray);
   position: fixed;
+  z-index: 1;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.966);
 }
@@ -119,8 +120,15 @@ body {
   object-position: bottom;
 }
 
-.hero-logo-overlay {
-
+.hero-title {
+  font-size: 72px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: -73%;
+  left: 10%;
+  width: 70%;
+  margin: 0;
+  opacity: 0.75;
 }
 
 /* GRID SECTION STYLES */
@@ -396,6 +404,17 @@ footer {
   .nav-logo-link {
     width: 10%;
   }
+  .hero-container {
+    height: 560px;
+  }
+  .hero-pic {
+    object-position: center;
+  }
+  .hero-title {
+    font-size: 95px;
+    line-height: 95px;
+    top: -65%;
+  }
   .show-grid-container {
     grid-template-columns: 1fr 1fr 1fr;
     padding: 95px 60px;
@@ -433,6 +452,18 @@ footer {
 @media only screen and (min-width: 1200px) { 
   .nav-logo-link {
     width: 5%;
+  }
+  .hero-container {
+    height: 600px;
+  }
+  .hero-pic {
+    object-position: center;
+  }
+  .hero-title {
+    font-size: 105px;
+    line-height: 105px;
+    top: -68%;
+    left: 15%;
   }
   .show-grid-container {
     padding: 105px 150px 60px 150px;
