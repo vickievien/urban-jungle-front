@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css';
 import FooterComponent from './footer/footer';
+import HeroContainerComponent from './hero/heroContainerComponent';
 import NavContainerComponent from './nav/navContainerComponent';
 import NewFormContainerComponent from './newForm/newFormContainerComponent';
 import ShowGridContainerComponent from './showGrid/showGridContainerComponent';
@@ -43,7 +44,7 @@ const MainIndexComponent = () => {
   // FUNCTION TO GET PLANTS FOR INDEX DISPLAY (USE EFFECT)
   const getPlantsFunction = async () => {
     try {
-      const getPlantsResponse = await fetch('http://localhost:3001/plants/');
+      const getPlantsResponse = await fetch('http://urban-jungle-back.herokuapp.com/plants/');
       const getPlantsData = await getPlantsResponse.json();
       // console.log(getPlantsData);
       setPlants(getPlantsData.data);
@@ -54,7 +55,7 @@ const MainIndexComponent = () => {
 
   // FUNCTION TO CREATE NEW PLANTS
   const createNewPlantFunction = async (newPlant) => {
-    const postNewPlantResponse = await fetch('http://localhost:3001/plants/', {
+    const postNewPlantResponse = await fetch('http://urban-jungle-back.herokuapp.com/plants/', {
       method: "POST",
       body: JSON.stringify(newPlant),
       headers: {
@@ -75,7 +76,7 @@ const MainIndexComponent = () => {
   const deletePlantFunction = async(deletePlantId) => {
     try {
       console.log('clicking delete plant function listening')
-      const deletePlantResponse = await fetch(`http://localhost:3001/plants/${deletePlantId}/`, {
+      const deletePlantResponse = await fetch(`http://urban-jungle-back.herokuapp.com/plants/${deletePlantId}/`, {
       method: "DELETE"
     });
     const deletePlantData = await deletePlantResponse.json();
@@ -95,7 +96,7 @@ const MainIndexComponent = () => {
   // FUNCTION TO UPDATE PLANTS
   const updatePlantFunction = async(plantToUpdate) => {
     try {
-      const updatePlantResponse = await fetch(`http://localhost:3001/plants/${plantToUpdate._id}`, {
+      const updatePlantResponse = await fetch(`http://urban-jungle-back.herokuapp.com/plants/${plantToUpdate._id}`, {
         method: "PUT",
         body: JSON.stringify(plantToUpdate),
         headers: {
@@ -122,7 +123,7 @@ const MainIndexComponent = () => {
   return (
     <main className="main-index">
       <NavContainerComponent toggleShowingFunction={toggleShowingFunction}/>
-        {/* HOLD FOR HERO */}
+        <HeroContainerComponent />
         <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
         <ShowGridContainerComponent setPlants={setPlants} plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} updatePlantFunction={updatePlantFunction} />
         <a className="back-to-top" href="#">Back to top</a>
