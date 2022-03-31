@@ -11,7 +11,7 @@ const ShowGridContainerComponent = (props) => {
   
   const getOnePlantInfoFunction = async(plantId) => {
     try {
-      const getOnePlantInfoResponse = await fetch(`http://localhost:3001/plants/${plantId}`);
+      const getOnePlantInfoResponse = await fetch(`https://urban-jungle-back.herokuapp.com/plants/${plantId}`);
       const getOnePlantInfoData = await getOnePlantInfoResponse.json();
       // console.log(plantId);
       // console.log(getOnePlantInfoData);
