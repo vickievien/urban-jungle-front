@@ -44,7 +44,7 @@ const MainIndexComponent = () => {
   // FUNCTION TO GET PLANTS FOR INDEX DISPLAY (USE EFFECT)
   const getPlantsFunction = async () => {
     try {
-      const getPlantsResponse = await fetch('http://urban-jungle-back.herokuapp.com/plants/');
+      const getPlantsResponse = await fetch('https://urban-jungle-back.herokuapp.com/plants/');
       const getPlantsData = await getPlantsResponse.json();
       // console.log(getPlantsData);
       setPlants(getPlantsData.data);
@@ -55,7 +55,7 @@ const MainIndexComponent = () => {
 
   // FUNCTION TO CREATE NEW PLANTS
   const createNewPlantFunction = async (newPlant) => {
-    const postNewPlantResponse = await fetch('http://urban-jungle-back.herokuapp.com/plants/', {
+    const postNewPlantResponse = await fetch('https://urban-jungle-back.herokuapp.com/plants/', {
       method: "POST",
       body: JSON.stringify(newPlant),
       headers: {
@@ -76,7 +76,7 @@ const MainIndexComponent = () => {
   const deletePlantFunction = async(deletePlantId) => {
     try {
       console.log('clicking delete plant function listening')
-      const deletePlantResponse = await fetch(`http://urban-jungle-back.herokuapp.com/plants/${deletePlantId}/`, {
+      const deletePlantResponse = await fetch(`https://urban-jungle-back.herokuapp.com/plants/${deletePlantId}/`, {
       method: "DELETE"
     });
     const deletePlantData = await deletePlantResponse.json();
@@ -96,7 +96,7 @@ const MainIndexComponent = () => {
   // FUNCTION TO UPDATE PLANTS
   const updatePlantFunction = async(plantToUpdate) => {
     try {
-      const updatePlantResponse = await fetch(`http://urban-jungle-back.herokuapp.com/plants/${plantToUpdate._id}`, {
+      const updatePlantResponse = await fetch(`https://urban-jungle-back.herokuapp.com/plants/${plantToUpdate._id}`, {
         method: "PUT",
         body: JSON.stringify(plantToUpdate),
         headers: {
