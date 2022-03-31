@@ -31,6 +31,16 @@ const ShowCardModalComponent = (props) => {
                     <p className='card-modal-property'>price:</p>
                     <h4 className='card-modal-value'>${props.updatePlant.price}</h4>
                 </div>
+
+                <div className='card-modal-detail-wrapper'>
+                    <p className='card-modal-property'>light:</p>
+                    <h4 className='card-modal-value'>{props.updatePlant.lightType}</h4>
+                </div>
+
+                <div className='card-modal-detail-wrapper'>
+                    <p className='card-modal-property'>light level:</p>
+                    <h4 className='card-modal-value'>{props.updatePlant.lightLevel}</h4>
+                </div>
             </section>
 
             <section className='card-modal-bottom-text-container'>

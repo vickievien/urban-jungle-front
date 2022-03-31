@@ -5,8 +5,6 @@ import '../../../../App.css';
 
 const EditFormModalComponent = (props) => {
 
-  
-
   const handleInputChangeFunction = (e) => {
     props.setUpdatePlant({
       ...props.updatePlant,
@@ -45,6 +43,38 @@ const EditFormModalComponent = (props) => {
       <label htmlFor="img">Image:</label>
       <input type="text" onChange={handleInputChangeFunction} name="img" value={props.updatePlant.img} required />
     </div>
+
+    <div className="form-input-container">
+        <label htmlFor="course">Light Type:</label>
+        <div className="radio-row-container">
+          <div className="radio-option-container">
+            <input type="radio" name="lightType" value="indirect" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Indirect</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightType" value="direct" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Direct</label>
+          </div>
+        </div>
+      </div>
+
+      <div className="form-input-container">
+        <label htmlFor="course">Light Level:</label>
+        <div className="radio-row-container">
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="low" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Low</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="medium" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Medium</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="high" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">High</label>
+          </div>
+        </div>
+      </div>
 
     <div className='form-input-container'>
       <label htmlFor="description">Description:</label>

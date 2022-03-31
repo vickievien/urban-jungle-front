@@ -24,6 +24,8 @@ const NewFormInputsComponent = (props) => {
       plantName: "",
       price: 0,
       img: "",
+      lightType: "",
+      lightLevel: "",
       description: "",
       email: ""
     })
@@ -52,6 +54,38 @@ const NewFormInputsComponent = (props) => {
       <div className='form-input-container'>
         <label htmlFor="img">Image:</label>
         <input type="text" name="img" onChange={handleInputChangeFunction} placeholder="e.g. https://i.imgur.com/761KWFI.jpg" required />
+      </div>
+
+      <div className="form-input-container">
+        <label htmlFor="course">Light Type:</label>
+        <div className="radio-row-container">
+          <div className="radio-option-container">
+            <input type="radio" name="lightType" value="indirect" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Indirect</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightType" value="direct" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Direct</label>
+          </div>
+        </div>
+      </div>
+
+      <div className="form-input-container">
+        <label htmlFor="course">Light Level:</label>
+        <div className="radio-row-container">
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="low" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Low</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="medium" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">Medium</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="lightLevel" value="high" onChange={handleInputChangeFunction} />
+            <label htmlFor="course-main">High</label>
+          </div>
+        </div>
       </div>
 
       <div className='form-input-container'>

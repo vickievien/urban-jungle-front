@@ -14,6 +14,8 @@ const ShowCardModalContainerComponent = (props) => {
     img: props.onePlantInfo.img,
     description: props.onePlantInfo.description,
     email: props.onePlantInfo.email,
+    lightType: props.onePlantInfo.lightType,
+    lightLevel: props.onePlantInfo.lightLevel,
     _id: props.onePlantInfo._id
   });
 

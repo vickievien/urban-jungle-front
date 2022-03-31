@@ -13,8 +13,8 @@ const ShowGridContainerComponent = (props) => {
     try {
       const getOnePlantInfoResponse = await fetch(`http://localhost:3001/plants/${plantId}`);
       const getOnePlantInfoData = await getOnePlantInfoResponse.json();
-      console.log(plantId);
-      console.log(getOnePlantInfoData);
+      // console.log(plantId);
+      // console.log(getOnePlantInfoData);
       setOnePlantInfo(getOnePlantInfoData.data);
   
       props.toggleCardShowingFunction();
@@ -25,6 +25,7 @@ const ShowGridContainerComponent = (props) => {
 
   return (
     <>
+      <h3 className="browse-text">Browse Listings</h3>
       <div className='show-grid-container'>
         <GridItemContainerComponent plants={props.plants}  getOnePlantInfoFunction={getOnePlantInfoFunction} />
       </div>
