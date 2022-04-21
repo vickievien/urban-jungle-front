@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import './css/index.css';
+import App from './../src/css/App.css';
 import reportWebVitals from './reportWebVitals';
+import MainIndexComponent from './mainIndex/mainIndexComponent';
+import HomeContainerComponent from './homePage/homeContainerComponent';
+import ContactContainerComponent from './contactPage/contactContainerComponent';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <Routes>
+        <Route path="/" element={< HomeContainerComponent/>} />
+        <Route path="/plants" element={<MainIndexComponent />} />
+        <Route path="/contact" element={<ContactContainerComponent />} />
+
+
+        {/* <App /> */}
+      </Routes>
+    </React.StrictMode>
+  </BrowserRouter>,
+  
+  
   document.getElementById('root')
 );
 

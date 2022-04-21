@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import '../App.css';
-import FooterComponent from './footer/footer';
-import HeroContainerComponent from './hero/heroContainerComponent';
-import NavContainerComponent from './nav/navContainerComponent';
+import '../css/App.css';
+import FooterComponent from '../footer/footer';
+import HeroContainerComponent from '../homePage/hero/heroContainerComponent';
+import NavContainerComponent from '../nav/navContainerComponent';
 import NewFormContainerComponent from './newForm/newFormContainerComponent';
 import ShowGridContainerComponent from './showGrid/showGridContainerComponent';
 
@@ -20,10 +20,6 @@ const MainIndexComponent = () => {
   // SET STATE FOR TOGGLE CARD MODAL SO DELETE FUNCTION CAN USE IT HERE
   const [cardShowing, setCardShowing] = useState(false);
 
-  // SET STATE FOR TOGGLE EDIT BUTTON SO UPDATE FUNCTION (BELOW) CAN BE USED HERE TOO
-  // const [editFormShowing, setEditFormShowing] = useState(false);
-
-
   // CREATE FUNCTION TO TOGGLE SHOW/HIDE NEW LISTING FORM (TRICKLE FUNCTION TO NAV ITEMS)
   const toggleShowingFunction = () => {
     setShowing(!showing);
@@ -35,10 +31,6 @@ const MainIndexComponent = () => {
     setCardShowing(!cardShowing);
     // console.log(`clicking: ${cardShowing}`)
   }
-
-  // const toggleEditFormShowingFunction = () => {
-  //     setEditFormShowing(!editFormShowing);
-  // }
 
 
   // FUNCTION TO GET PLANTS FOR INDEX DISPLAY (USE EFFECT)
@@ -74,10 +66,10 @@ const MainIndexComponent = () => {
 
   // FUNCTION TO DELETE PLANTS
   const deletePlantFunction = async(deletePlantId) => {
-    try {
+    // try {
       console.log('clicking delete plant function listening')
       const deletePlantResponse = await fetch(`https://urban-jungle-back.herokuapp.com/plants/${deletePlantId}/`, {
-      method: "DELETE"
+      method: "DELETE",
     });
     const deletePlantData = await deletePlantResponse.json();
     console.log(deletePlantData);
@@ -86,9 +78,6 @@ const MainIndexComponent = () => {
       setPlants(newPlants);
     }else {
       setPlantServerError(deletePlantData.data);
-    }
-    } catch (error) {
-      console.log(error)
     }
     toggleCardShowingFunction()
   }
@@ -118,16 +107,14 @@ const MainIndexComponent = () => {
 
   // USE EFFECT FOR INDEX
   useEffect(getPlantsFunction, []);
-  // useEffect(updatePlantFunction, [plants]);
 
   return (
     <main className="main-index">
       <NavContainerComponent toggleShowingFunction={toggleShowingFunction}/>
-        <HeroContainerComponent />
-        <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
-        <ShowGridContainerComponent setPlants={setPlants} plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} updatePlantFunction={updatePlantFunction} />
-        <a className="back-to-top" href="#">Back to top</a>
-        <FooterComponent />
+      <NewFormContainerComponent showing={showing} toggleShowingFunction={toggleShowingFunction} createNewPlantFunction={createNewPlantFunction}/>
+      <ShowGridContainerComponent setPlants={setPlants} plants={plants} toggleCardShowingFunction={toggleCardShowingFunction} cardShowing={cardShowing} deletePlantFunction={deletePlantFunction} updatePlantFunction={updatePlantFunction} />
+      <a className="back-to-top" href="#">Back to top</a>
+      <FooterComponent />
     </main>
   );
 }

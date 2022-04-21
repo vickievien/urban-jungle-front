@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../../../App.css';
+import '../../../../css/App.css';
 
 
 
@@ -18,7 +18,6 @@ const EditFormModalComponent = (props) => {
     // const newPlantsWithUpdates = props.plants.map(n => n._id === props.plantToUpdate._id ? props.plantToUpdate : n);
     // props.setPlants(newPlantsWithUpdates)
     props.toggleEditFormShowingFunction();
-
   }
 
   return (

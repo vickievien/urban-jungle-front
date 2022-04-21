@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../App.css';
+import '../../css/App.css';
 import GridItemContainerComponent from './gridItemContainerComponent';
 import ShowCardModalContainerComponent from './showCardModal/showCardModalContainerComponent';
 
