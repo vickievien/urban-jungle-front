@@ -32,6 +32,7 @@
     font-size: 16px;
     position: relative;
     top: -83%;
+    cursor: pointer;
 }
 
 .hero-left-arrow:hover {
@@ -185,7 +186,7 @@ animation: slideRight 3s;
 
 /* TEXT SECTION */
 .text-section {
-    padding: 70px 40px;
+    padding: 70px 40px 50px 40px;
     background-color: rgba(244, 243, 243, 0.622);
 }
 .text-section-quote {
@@ -203,6 +204,7 @@ animation: slideRight 3s;
 .q-line-one:hover {
     transform: translateX(25px);
 }
+
 
 .q-line-two {
     text-align: right;
@@ -224,20 +226,14 @@ animation: slideRight 3s;
     margin-top: 10px;
 }
 
-.seed-container {
-    width: fit-content;
-}
-
-.seed-container:hover {
-    animation: spin 2s infinite;
-}
-
 @keyframes spin {
     from {
-        transform: rotate(0deg)
+        transform: rotate(0deg);
+        transform-origin: center;
     }
     to {
-        transform: rotate(360deg)
+        transform: rotate(360deg);
+        transform-origin: center;
     }
 }
 
@@ -247,11 +243,10 @@ animation: slideRight 3s;
     position: relative;
     top: -35px;
     left: 10px;
-    transition: transform 1.5s ease-in-out;
 }
 
 .seed-one:hover {
-    transform: scale(1.5)
+    animation: spin 2s infinite;
 }
 
 .seed-two {
@@ -264,7 +259,7 @@ animation: slideRight 3s;
 }
 
 .seed-two:hover {
-    transform: scale(1.2)
+    animation: spin 2s infinite;
 }
 
 @media only screen and (min-width: 768px) {
@@ -330,7 +325,26 @@ animation: slideRight 3s;
         }
     }
     .text-section {
-        margin: 80px;
+        padding: 100px 120px 80px 120px;
+    }
+    .text-seed-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .text-section-quote {
+        font-size: 30px;
+    }
+    .q-line-two {
+        margin-top: 20px;
+    }
+    .q-line-three {
+        font-size: 22px;
+    }
+    .seed-one {
+        font-size: 52px;
+    }
+    .seed-two {
+        font-size: 72px;
     }
 }
 
@@ -373,5 +387,17 @@ animation: slideRight 3s;
     }
     .featured-more-button {
         padding: 10px 15px;
+    }
+    .text-seed-container {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .seed-one {
+        font-size: 62px;
+        top: -45px;
+    }
+    .seed-two {
+        font-size: 82px;
+        top: -50px;
     }
 }
