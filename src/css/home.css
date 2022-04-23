@@ -1,3 +1,16 @@
+:root {
+    --whitesmoke: rgb(216, 215, 214);
+    --dark-gray: rgb(143, 143, 143);
+    --charcoal: rgb(56, 56, 56);
+    }
+  
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+
 /* HERO SECTION STYLES */
 .hero-container {
     height: 515px;
@@ -173,16 +186,34 @@ animation: slideRight 3s;
     }
 }
 
-.featured-more-button {
-    display: inline-block;
+.homepage-button {
+    display: block;
     border-radius: 5px;
     margin: 10px 0;
     padding: 5px 10px;
     border: 1px solid var(--whitesmoke);
     transition: 0.3s ease-in-out;
     cursor: pointer;
+    text-decoration: none;
+    background: linear-gradient(to right, rgb(13, 82, 53) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: all 1s ease-in-out;
 }
 
+.homepage-button:hover {
+    background-position: left;
+    transform: translateY(-5px);
+    color: var(--whitesmoke);
+}
+
+.homepage-button:visited {
+    color: var(--charcoal);
+}
+
+.homepage-button:visited:hover {
+    color: var(--whitesmoke);
+}
 
 /* TEXT SECTION */
 .text-section {
@@ -262,6 +293,41 @@ animation: slideRight 3s;
     animation: spin 2s infinite;
 }
 
+/* HOMEPAGE BROWSE LISTINGS SECTIONS */
+.more-listings-section {
+    padding-bottom: 80px;
+}
+
+.more-listings-section .grid-item-container {
+    cursor: auto;
+}
+
+.more-listings-section .show-grid-container {
+    padding: 0 40px 20px 40px;
+}
+
+.card-img.homepage {
+    transition: transform 3s, filter 3s ease-in-out;
+    filter: brightness(100%);
+}
+
+.card-img-container {
+    overflow: hidden;
+}
+
+.card-img.homepage:hover {
+    filter: brightness(110%);
+    transform: scale(1.2);
+    overflow: hidden;
+}
+
+.more-listings-section .homepage-button {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+
 @media only screen and (min-width: 768px) {
     .hero-container {
         height: 560px;
@@ -307,7 +373,7 @@ animation: slideRight 3s;
         margin: 15px 0 0 0;
         width: 100%;
     }
-    .featured-more-button {
+    .homepage-button {
         width: fit-content;
         margin-top: 20px;
     }
@@ -345,6 +411,9 @@ animation: slideRight 3s;
     }
     .seed-two {
         font-size: 72px;
+    }
+    .more-listings-section .show-grid-container {
+        padding: 0 60px 20px 60px;
     }
 }
 
@@ -385,7 +454,7 @@ animation: slideRight 3s;
         font-size: 16px;
         margin: 0;
     }
-    .featured-more-button {
+    .homepage-button {
         padding: 10px 15px;
     }
     .text-seed-container {
@@ -399,5 +468,8 @@ animation: slideRight 3s;
     .seed-two {
         font-size: 82px;
         top: -50px;
+    }
+    .more-listings-section .show-grid-container {
+        padding: 0 150px 40px 150px;
     }
 }

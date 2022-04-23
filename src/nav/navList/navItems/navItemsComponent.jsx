@@ -8,10 +8,10 @@ const NavItemsComponent = (props) => {
   return (
     <>
         <li className='nav-item'>
-          <Link className='nav-item-link' to="/">Home</Link>
+            <a className='nav-item-link button create-button' onClick={props.toggleShowingFunction}>Add listing</a>
         </li>
         <li className='nav-item'>
-            <a className='nav-item-link button create-button' onClick={props.toggleShowingFunction}>Add listing</a>
+          <Link className='nav-item-link' to="/">Home</Link>
         </li>
         <li className='nav-item'>
             <Link className='nav-item-link' to="/plants">Listings</Link>

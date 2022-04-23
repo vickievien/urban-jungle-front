@@ -27,7 +27,9 @@ const NewFormInputsComponent = (props) => {
       lightType: "",
       lightLevel: "",
       description: "",
-      email: ""
+      email: "",
+      maintenance: "",
+      location: "",
     })
     props.toggleShowingFunction();
   }
@@ -57,33 +59,51 @@ const NewFormInputsComponent = (props) => {
       </div>
 
       <div className="form-input-container">
-        <label htmlFor="course">Light Type:</label>
+        <label htmlFor="light-type">Light Type:</label>
         <div className="radio-row-container">
           <div className="radio-option-container">
             <input type="radio" name="lightType" value="indirect" onChange={handleInputChangeFunction} />
-            <label htmlFor="course-main">Indirect</label>
+            <label htmlFor="light-type-direct">Indirect</label>
           </div>
           <div className="radio-option-container">
             <input type="radio" name="lightType" value="direct" onChange={handleInputChangeFunction} />
-            <label htmlFor="course-main">Direct</label>
+            <label htmlFor="light-type-direct">Direct</label>
           </div>
         </div>
       </div>
 
       <div className="form-input-container">
-        <label htmlFor="course">Light Level:</label>
+        <label htmlFor="light-level">Light Level:</label>
         <div className="radio-row-container">
           <div className="radio-option-container">
             <input type="radio" name="lightLevel" value="low" onChange={handleInputChangeFunction} />
-            <label htmlFor="course-main">Low</label>
+            <label htmlFor="light-level-high">Low</label>
           </div>
           <div className="radio-option-container">
             <input type="radio" name="lightLevel" value="medium" onChange={handleInputChangeFunction} />
-            <label htmlFor="course-main">Medium</label>
+            <label htmlFor="light-level-med">Medium</label>
           </div>
           <div className="radio-option-container">
             <input type="radio" name="lightLevel" value="high" onChange={handleInputChangeFunction} />
-            <label htmlFor="course-main">High</label>
+            <label htmlFor="light-level-high">High</label>
+          </div>
+        </div>
+      </div>
+
+      <div className="form-input-container">
+        <label htmlFor="course">Maintenance Level:</label>
+        <div className="radio-row-container">
+          <div className="radio-option-container">
+            <input type="radio" name="maintenance" value="low" onChange={handleInputChangeFunction} />
+            <label htmlFor="maintenance-low">Low</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="maintenance" value="medium" onChange={handleInputChangeFunction} />
+            <label htmlFor="maintenance-med">Medium</label>
+          </div>
+          <div className="radio-option-container">
+            <input type="radio" name="maintenance" value="high" onChange={handleInputChangeFunction} />
+            <label htmlFor="maintenance-high">High</label>
           </div>
         </div>
       </div>
@@ -96,6 +116,11 @@ const NewFormInputsComponent = (props) => {
       <div className='form-input-container'>
         <label htmlFor="email">Contact Email:</label>
         <input type="email" name="email" onChange={handleInputChangeFunction} placeholder="name@email.com" required />
+      </div>
+
+      <div className='form-input-container'>
+        <label htmlFor="location">Location:</label>
+        <input type="text" name="location" onChange={handleInputChangeFunction} placeholder="e.g. Los Angeles" required />
       </div>
 
       <input className='submit' type="submit" value="Submit" />

@@ -10,8 +10,8 @@ const TextContainerComponent = () => {
                 <p className='text-section-quote q-line-two'>I need more shelves.</p>
                 <p className='text-section-quote q-line-three'>- Anonymous</p>            
                 <div className='seed-container'>
-                    <i class="fas fa-seedling seed-one"></i>
-                    <i class="fas fa-seedling seed-two"></i>
+                    <i className="fas fa-seedling seed-one"></i>
+                    <i className="fas fa-seedling seed-two"></i>
                 </div>
             </div>
         </section>

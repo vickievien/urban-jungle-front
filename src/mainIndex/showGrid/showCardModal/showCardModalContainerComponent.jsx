@@ -16,7 +16,9 @@ const ShowCardModalContainerComponent = (props) => {
     email: props.onePlantInfo.email,
     lightType: props.onePlantInfo.lightType,
     lightLevel: props.onePlantInfo.lightLevel,
-    _id: props.onePlantInfo._id
+    _id: props.onePlantInfo._id,
+    maintenance: props.onePlantInfo.maintenance,
+    location: props.onePlantInfo.location
   });
 
   return (

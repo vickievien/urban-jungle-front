@@ -11,7 +11,11 @@ const ShowCardModalComponent = (props) => {
         setEditFormShowing(!editFormShowing);
     }
 
+    const [showSeller, setShowSeller] = useState(false)
 
+    const toggleSellerInfoFunction = () => {
+        setShowSeller(!showSeller)
+    }
 
     return (
         <article className='card-modal-container-for-card'>
@@ -41,6 +45,11 @@ const ShowCardModalComponent = (props) => {
                     <p className='card-modal-property'>light level:</p>
                     <h4 className='card-modal-value'>{props.updatePlant.lightLevel}</h4>
                 </div>
+
+                <div className='card-modal-detail-wrapper'>
+                    <p className='card-modal-property'>maintenance level:</p>
+                    <h4 className='card-modal-value'>{props.updatePlant.maintenance}</h4>
+                </div>
             </section>
 
             <section className='card-modal-bottom-text-container'>
@@ -48,10 +57,17 @@ const ShowCardModalComponent = (props) => {
                     <p className='card-modal-property'>description:</p>
                     <h4 className='card-modal-value'>{props.updatePlant.description}</h4>
                 </div>
+
+                {showSeller?
                 <div className='card-modal-detail-wrapper'>
                     <p className='card-modal-property'>contact seller:</p>
                     <h4 className='card-modal-value'>{props.updatePlant.email}</h4>
                 </div>
+                :
+                <a className="button edit-button" onClick={toggleSellerInfoFunction}>Contact Seller</a>
+                }
+                
+                
                 <div className='card-modal-detail-wrapper card-modal-button-container'>
                     <a className='button edit-button' onClick={toggleEditFormShowingFunction}>Edit</a>
 

@@ -58,7 +58,7 @@ const MainIndexComponent = () => {
     console.log(newPlantData);
 
     if(newPlantData.success === true) {
-      setPlants([newPlantData.data, ...plants]);
+      setPlants([...plants, newPlantData.data]);
     }else {
       setPlantServerError(newPlantData.data);
     }

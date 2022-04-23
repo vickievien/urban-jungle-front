@@ -5,6 +5,7 @@ import FooterComponent from '../footer/footer';
 import NavContainerComponent from '../nav/navContainerComponent';
 import FeaturedContainerComponent from './featuredSection/featuredContainerComponent';
 import HeroContainerComponent from './hero/heroContainerComponent';
+import MoreListingsContainerComponent from './moreListingsSection/moreListingsContainerComponent';
 import TextContainerComponent from './textSection/textContainerComponent';
 
 const HomeContainerComponent = () => {
@@ -15,7 +16,7 @@ const HomeContainerComponent = () => {
         <HeroContainerComponent />
         <FeaturedContainerComponent />
         <TextContainerComponent />
-
+        <MoreListingsContainerComponent />
         <FooterComponent />
     </ section>
   );
