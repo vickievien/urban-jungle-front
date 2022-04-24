@@ -210,6 +210,7 @@ body {
 .filter-form-input.location {
   margin: 0 auto 10px auto;
   display: block;
+  width: auto;
 }
 
 .form-input-container.filter-form-buttons-container {
@@ -218,11 +219,9 @@ body {
   margin: 0 auto;
 }
 
-
-
 .clear-button {
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 4px 10px;
   border: 1px solid var(--whitesmoke);
   transition: 0.3s ease-in-out;
   cursor: pointer;
@@ -477,11 +476,11 @@ footer {
   .nav-logo-link {
     width: 10%;
   }
-  .browse-filter-container {
+  /* .browse-filter-container {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-  }
+  } */
   .browse-text {
     padding: 95px 0 30px 0;
   }

@@ -1,0 +1,107 @@
+:root {
+    --whitesmoke: rgb(216, 215, 214);
+    --dark-gray: rgb(143, 143, 143);
+    --charcoal: rgb(56, 56, 56);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-section {
+    padding: 120px 40px;
+    background-image: url('https://i.imgur.com/cmfIkDQ.jpg');
+    background-size: cover;
+    background-position: bottom right;
+    min-height: 100vh;
+}
+
+.contact-title {
+    font-size: 36px;
+    letter-spacing: 0.05rem;
+    line-height: 44px;
+    margin-bottom: 10px;
+}
+
+.contact-caption {
+    font-weight: 300;
+    line-height: 24px;
+    width: 50%;
+}
+
+.contact-signature {
+    margin-top: 20px;
+    display: block;
+}
+
+.contact-icon-container {
+    margin: 20px 0;
+}
+
+.connect {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.03rem;
+}
+
+.contact-link,
+.contact-link:visited {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+    .contact-section {
+        padding: 160px 80px;
+    }
+    .contact-title {
+        font-size: 46px;
+        margin-bottom: 30px;
+    }
+    .contact-caption {
+        font-size: 22px;
+        line-height: 44px;
+        width: 70%;
+    }
+    .contact-icon-container {
+        margin: 40px 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 50%;
+        position: relative;
+        left: -10px;
+    }
+    .connect {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .contact-link {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .contact-section {
+        padding: 180px 100px;
+    }
+    .contact-title {
+        margin-bottom: 50px;
+    }
+    .contact-caption {
+        width: 60%;
+    }
+    .contact-icon-container {
+        width: 30%;
+        margin: 60px 0;
+        left: -20px;
+    }
+}
