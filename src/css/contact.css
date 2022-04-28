@@ -55,6 +55,12 @@
     text-decoration: none;
     color: var(--charcoal);
     font-size: 18px;
+    transition: transform 1s ease-in-out;
+}
+
+.contact-link:hover {
+    color: rgb(21, 119, 78);
+    transform: scale(1.2);
 }
 
 @media only screen and (min-width: 768px) {
