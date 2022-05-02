@@ -13,7 +13,7 @@ The pit-stop before your final destination decision. See what other travelers ha
 
 
 ## User Flow:
-![alt text](https://i.imgur.com/oYElZhG.png "Urban Jungle userflow")
+![alt text](https://i.imgur.com/NvvjaP0.png "Urban Jungle userflow")
 
 
 ## Tech Stack:
