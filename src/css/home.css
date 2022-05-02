@@ -48,8 +48,8 @@
     cursor: pointer;
 }
 
-.hero-left-arrow:hover {
-    animation: slideLeft 3s;
+.hero-left-arrow {
+    animation: slideLeft 3s infinite;
 }
 
 .hero-display {
@@ -72,8 +72,8 @@
     }
 }
 
-.hero-right-arrow:hover {
-animation: slideRight 3s;
+.hero-right-arrow {
+animation: slideRight 3s infinite;
 }
 
 @keyframes slideRight {
